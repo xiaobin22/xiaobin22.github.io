@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>JS基础（三） 条件循环语句 | xiaobin</title>
+<meta name="description" content="&lt;h4&gt;这个世界急三火四滴&lt;/h4&gt;">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://xiaobin22.github.io/favicon.ico?v=1600268448850">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://xiaobin22.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://xiaobin22.github.io">
+        <img src="https://xiaobin22.github.io/images/avatar.png?v=1600268448850" class="site-logo">
+        <h1 class="site-title">xiaobin</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav" target="_blank">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav" target="_blank">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav" target="_blank">
+            标签
+          </a>
+        
+      
+        
+          <a href="https://xiaobin22.github.io/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/xiaobin22/xiaobin22.github.io" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.veryins.com/tag/%E7%9F%B3%E5%8E%9F%E3%81%95%E3%81%A8%E3%81%BF" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+        
+      
+        
+      
+        
+          <a class="social-link" href="https://www.zhihu.com/people/zhang-jian-bin-36/activities" target="_blank">
+            <i class="fab fa-zhihu"></i>
+          </a>
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      <h4>这个世界急三火四滴</h4>
+    </div>
+    <div class="site-footer">
+       | <a class="rss" href="https://xiaobin22.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">JS基础（三） 条件循环语句</h2>
+            <div class="post-date">2019-09-15</div>
+            
+              <div class="feature-container" style="background-image: url('https://xiaobin22.github.io/post-images/js-ji-chu-san-tiao-jian-xun-huan-yu-ju.jpg')">
+              </div>
+            
+            <div class="post-content">
+              <h1 id="1-条件语句">1、条件语句</h1>
+<blockquote>
+<p>条件语句实际上是一种运算，这个运算最终判断是布尔值</p>
+</blockquote>
+<pre><code>        if(x || x===0){
+            x++;
+        }
+        console.log(x);
+
+        var  y=10;
+//        y&gt;0是true  y&lt;20 是true   true &amp;&amp; true  =true
+        if(y&gt;0 &amp;&amp; y&lt;20){
+            y++;
+        }
+        console.log(y);
+
+
+        var str=&quot;&quot;;
+//        str 是&quot;&quot;，它转换为布尔是false,!false=true
+//        所以下面的条件是成立的
+        if(!str){
+            str=&quot;a&quot;;
+        }
+        console.log(str);
+</code></pre>
+<h1 id="2-多支条件结构">2、多支条件结构</h1>
+<pre><code>switch (表达式){
+            case 值1:
+               ...
+                break;
+            case 值2:
+               ...
+                break;
+            case 值3:
+               ...
+                break;
+            case 值4:
+               ...
+                break;
+            default:
+               ...
+                break;
+        }
+//switch(表达式),表达式是一个变量或者或者一个运算式,
+//这个运算的结果或这个变量的值等于下面case中那一个,就会执行那个内容
+</code></pre>
+<h1 id="3-while循环">3、while循环</h1>
+<blockquote>
+<p>跳出循环有两种形式：<br>
+1、循环条件不满足<br>
+2、当循环条件满足，通过break跳出循环</p>
+</blockquote>
+<pre><code>var i=0;
+while(i&lt;50){
+			i++;
+}
+
+//死循环
+/*
+while(true){
+		if(){
+				break;
+		}
+}
+*/
+var s=0;
+while(true){
+		s++;
+		if(s&gt;50){
+				break;
+		}
+}
+//循环不能超出千万级以上，否则会造成卡顿状态，甚至卡死
+
+//九九乘法表
+  var i=1;
+        var str=&quot;&quot;;
+        while (i&lt;10){
+            var j=i;
+            while (j&lt;10){
+                str+=i+&quot;*&quot;+j+&quot;=&quot;+i*j+&quot;&amp;nbsp;&quot;;
+//                document.write(i+&quot;*&quot;+j+&quot;=&quot;+i*j+&quot;&amp;nbsp;&quot;);
+                j++;
+            }
+//            document.write(&quot;|&lt;br&gt;&quot;);
+            str+=&quot;&lt;br&gt;&quot;;
+            i++;
+     }
+     document.write(str);
+</code></pre>
+<h1 id="4-do-while">4、do while</h1>
+<pre><code>/*
+do{
+		
+}while(条件)；
+*/
+//不管循环条件是否满足，先执行一次语句块
+//当初始值在语句块中计算后满足条件时，继续执行语句块
+</code></pre>
+<h1 id="5-for循环">5、for循环</h1>
+<pre><code>for(var i=0;sum=0;i&lt;100;i++;sum+=i){
+		
+}
+console.log(sum);
+
+//continue与break区别
+//continue结束本次循环，而break结束循环
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://xiaobin22.github.io/tag/plQTGd7Nz/" class="tag">
+                    JavaScript
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://xiaobin22.github.io/post/js-ji-chu-er-shu-ju-zhuan-huan-he-yun-suan-fu/">
+                  <h3 class="post-title">
+                    JS基础（二）数据转换和运算符
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '85509327b5383c42cba5',
+        clientSecret: '8646a4d7aecba798ef7e14314060d0d77ac9cb69',
+        repo: 'xiaobin22.github.io',
+        owner: 'xiaobin22',
+        admin: ['xiaobin22'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

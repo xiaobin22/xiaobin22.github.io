@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>JS基础（二）数据转换和运算符 | xiaobin</title>
+<meta name="description" content="&lt;h4&gt;这个世界急三火四滴&lt;/h4&gt;">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://xiaobin22.github.io/favicon.ico?v=1600268448850">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://xiaobin22.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://xiaobin22.github.io">
+        <img src="https://xiaobin22.github.io/images/avatar.png?v=1600268448850" class="site-logo">
+        <h1 class="site-title">xiaobin</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav" target="_blank">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav" target="_blank">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav" target="_blank">
+            标签
+          </a>
+        
+      
+        
+          <a href="https://xiaobin22.github.io/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/xiaobin22/xiaobin22.github.io" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.veryins.com/tag/%E7%9F%B3%E5%8E%9F%E3%81%95%E3%81%A8%E3%81%BF" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+        
+      
+        
+      
+        
+          <a class="social-link" href="https://www.zhihu.com/people/zhang-jian-bin-36/activities" target="_blank">
+            <i class="fab fa-zhihu"></i>
+          </a>
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      <h4>这个世界急三火四滴</h4>
+    </div>
+    <div class="site-footer">
+       | <a class="rss" href="https://xiaobin22.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">JS基础（二）数据转换和运算符</h2>
+            <div class="post-date">2019-07-29</div>
+            
+              <div class="feature-container" style="background-image: url('https://xiaobin22.github.io/post-images/js-ji-chu-er-shu-ju-zhuan-huan-he-yun-suan-fu.jpg')">
+              </div>
+            
+            <div class="post-content">
+              <h1 id="一-数据类型">一、数据类型</h1>
+<blockquote>
+<p>JS的数据类型主要分为<strong>基本类型</strong>和<strong>引用类型</strong></p>
+</blockquote>
+<p><strong>1、数据类型</strong></p>
+<ul>
+<li>JS数据类型分为两种：</li>
+<li>
+<pre><code> 基本数据类型：Number、String、Boolean、Null、 Undefined
+</code></pre>
+</li>
+<li>
+<pre><code> 引用数据类型：object
+</code></pre>
+</li>
+</ul>
+<p><strong>2、栈和堆</strong></p>
+<ul>
+<li>
+<pre><code> 栈为自动分配的内存空间，它由系统自动释放；堆动态分配的内存，大小不一，需要手动释放
+</code></pre>
+</li>
+</ul>
+<h1 id="二-数据类型转换">二、数据类型转换</h1>
+<p><strong>1、字符串转换为数值</strong></p>
+<pre><code>//parseInt（）、Number（）把字符串转换为数值类型
+        var str1=&quot;aaa&quot;;
+        console.log(parseInt(str1));//NaN  非数值，强制了数据类型是数值型，但是值并不是数值，这时候就是NaN
+        console.log(Number(str1));//NaN  非数值，强制了数据类型是数值型，但是值并不是数值，这时候就是NaN
+        var str2=&quot;38&quot;;
+        console.log(parseInt(str2)); //38
+        console.log(Number(str2)); //38
+        var str3=&quot;38a&quot;;
+        console.log(parseInt(str3));//38;
+        console.log(Number(str3));//NaN; 使用Number强转，如果内容有字符，就直接判定为NaN
+        var str4=&quot;a38&quot;;
+        console.log(parseInt(str4));//NaN
+//parseInt（）与Number（）区别主要是当前面是数字后面是字符parseInt抛弃后面字符，但Number直接转换为NaN;若开始就是字符，直接转换为NaN
+/*
+*String();     转换为字符串
+*toString();   按进制转换
+*toFixed();     保留几位小数，自动四舍五入
+*/
+</code></pre>
+<h1 id="三-运算符">三、运算符</h1>
+<blockquote>
+<p>JS运算符主要包括算数运算符、一元运算符、关系运算符、逻辑运算符、赋值运算符、位运算符</p>
+</blockquote>
+<p><strong>1、算数运算符</strong></p>
+<pre><code>//赋值    =
+var x=1;
+var y=2;
+var z=x+y;
+console.log(z);
+
+//对于字符串相加---首位相连
+var str1=&quot;a&quot;;
+var str2=&quot;b&quot;;
+console.log(str1+str2);
+
+//隐式转换
+
+数值、布尔,undefined，null加字符串 ----
+将数值、布尔、undefined、null转换为字符串进行字符串拼接
+
+数值与布尔----
+先将布尔转换为数值类型，true为1，false为0；
+null转换为0；undefined由于转换之后为NaN，所以数值与undefined进行算数运算结果都为NaN
+
+undefined----
+除了与字符串做加法进行拼接，其余都是NaN
+
+字符串、布尔、undefined、null与数值进行除加法之外的运算都是先把它们转换为数值进行求值。
+</code></pre>
+<p><strong>2、一元运算符</strong></p>
+<pre><code>var x=5;
+var y=x++;
+console.log(y,x);//先进行赋值运算把  x=5赋值给y,然后进行x加一
+//y=5;x=6
+
+var x=5;
+var y=++x;
+consoele.log(y,x)//先进行x加一，然后把x赋值给y
+//y=6;x=6
+</code></pre>
+<p><strong>3、关系运算符</strong></p>
+<pre><code>       console.log(&quot;&quot;==0);//true
+       console.log(undefined==null);//true
+       console.log(null==0);//false
+       console.log(undefined==0);//false
+       console.log(&quot;&quot;==undefined)//false
+       console.log(false==&quot;&quot;);//true
+       console.log(false==0);//true
+       console.log(false==undefined);//false
+       console.log(false==null);//false
+			 
+	/*
+			  *     false &quot;&quot;  0
+        *     undefined null
+        *     NaN
+				
+				*    ==比较         只看数值
+        *    === 精确比较      数据类型比较
+        *
+        *    != 不等
+        *    !== 不精确等于
+	*/
+				
+//        console.log(&quot;4&quot;==4);//true
+//        console.log(&quot;4&quot;===4);//false
+</code></pre>
+<p><strong>4、逻辑运算符</strong></p>
+<pre><code>//逻辑运算符结果为布尔值
+//取反  ！a
+var a;
+if(a){
+	//a不是0、false、“”、null、undefined、NaN就满足
+}
+
+if(!a){
+	//a是0、false、“”、null、undefined、NaN就满足
+}
+</code></pre>
+<p><strong>5、赋值运算符</strong></p>
+<pre><code>var num =5;
+num+=5; //num=num+5;
+console.log(num);
+var num1=&quot;5&quot;;
+num1+=2;
+console.log(num1); //52(字符串)；
+/*
+		*   -=
+		*  +=
+		*   *=
+		*  %=
+*/
+</code></pre>
+<p><strong>6、位运算符</strong></p>
+<pre><code>        *    &amp;    1&amp;1=1 其它的都是0
+        *    |    0|0=0  其它都是1
+        *    ^   相同为0，不同为1
+        *    ~   加1取负
+        *    1&lt;&lt;8  二进制向左移八位，后面补零    1&lt;&lt;n   2的n次幂
+        *    256&gt;&gt;7   二进制转换后向右删除后面的数量， 100000000&gt;&gt;7--&gt;10
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://xiaobin22.github.io/tag/plQTGd7Nz/" class="tag">
+                    JavaScript
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://xiaobin22.github.io/post/js-ji-chu-yi/">
+                  <h3 class="post-title">
+                    JS基础（一）
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '85509327b5383c42cba5',
+        clientSecret: '8646a4d7aecba798ef7e14314060d0d77ac9cb69',
+        repo: 'xiaobin22.github.io',
+        owner: 'xiaobin22',
+        admin: ['xiaobin22'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

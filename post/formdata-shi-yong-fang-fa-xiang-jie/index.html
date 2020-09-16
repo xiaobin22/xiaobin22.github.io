@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>FormData使用方法详解 | xiaobin</title>
+<meta name="description" content="&lt;h4&gt;这个世界急三火四滴&lt;/h4&gt;">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://xiaobin22.github.io/favicon.ico?v=1600268448850">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://xiaobin22.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://xiaobin22.github.io">
+        <img src="https://xiaobin22.github.io/images/avatar.png?v=1600268448850" class="site-logo">
+        <h1 class="site-title">xiaobin</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav" target="_blank">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav" target="_blank">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav" target="_blank">
+            标签
+          </a>
+        
+      
+        
+          <a href="https://xiaobin22.github.io/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/xiaobin22/xiaobin22.github.io" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.veryins.com/tag/%E7%9F%B3%E5%8E%9F%E3%81%95%E3%81%A8%E3%81%BF" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+        
+      
+        
+      
+        
+          <a class="social-link" href="https://www.zhihu.com/people/zhang-jian-bin-36/activities" target="_blank">
+            <i class="fab fa-zhihu"></i>
+          </a>
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      <h4>这个世界急三火四滴</h4>
+    </div>
+    <div class="site-footer">
+       | <a class="rss" href="https://xiaobin22.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">FormData使用方法详解</h2>
+            <div class="post-date">2019-07-26</div>
+            
+              <div class="feature-container" style="background-image: url('https://xiaobin22.github.io/post-images/formdata-shi-yong-fang-fa-xiang-jie.jpg')">
+              </div>
+            
+            <div class="post-content">
+              <p><strong>FromData的主要用途有两个：</strong><br>
+1、将form表单元素的name与value进行组合，实现表单数据的序列化，从而减少表单的拼接，提高工作效率。<br>
+2、异步上传文件</p>
+<h1 id="一-创建formdata对象">一、创建formData对象</h1>
+<p>1、创建一个空对象：</p>
+<pre><code>//通过formData构造函数创建一个空对象
+var formdata=new FormData();
+//可以通过append()方法来追加数据
+formdata.append(&quot;name&quot;,&quot;laotie&quot;);
+//通过get方法对值进行读取
+console.log(formddata.get(&quot;name&quot;));//laotie
+//通过set方法对值进行设置
+formdata.set(&quot;name&quot;,&quot;laowang&quot;);
+console.log(formdata.get(&quot;name&quot;)); //laowang
+</code></pre>
+<p>2、通过表单对formData进行初始化</p>
+<blockquote>
+<p>创建表单：</p>
+</blockquote>
+<pre><code>&lt;form id=&quot;advForm&quot;&gt;
+		     &lt;p&gt;广告名称：&lt;input type=&quot;text&quot; name=&quot;advName&quot; value=&quot;xixi&quot;&gt;&lt;/p&gt;
+				 &lt;p&gt;广告类别：&lt;select name=&quot;advType&quot;&gt;
+				       &lt;option value=&quot;1&quot;&gt;&lt;/option&gt;
+							 &lt;option value=&quot;1&quot;&gt;&lt;/option&gt;
+							 &lt;option value=&quot;1&quot;&gt;&lt;/option&gt;
+							 &lt;option value=&quot;1&quot;&gt;&lt;/option&gt;
+					&lt;/select&gt;&lt;/p&gt;
+					&lt;p&gt;&lt;input type=&quot;button&quot; id=&quot;btn&quot; value=&quot;添加&quot;&gt;&lt;/p&gt;
+&lt;/form&gt;
+</code></pre>
+<blockquote>
+<p>通过表单元素为参数，实现对formData的初始化：</p>
+</blockquote>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://xiaobin22.github.io/tag/plQTGd7Nz/" class="tag">
+                    JavaScript
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://xiaobin22.github.io/post/li-yong-vue-cli-zhong-de-proxytable-jie-jue-kai-fa-huan-jing-de-kua-yu-wen-ti/">
+                  <h3 class="post-title">
+                    利用Vue-cli中的proxyTable解决开发环境的跨域问题
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '85509327b5383c42cba5',
+        clientSecret: '8646a4d7aecba798ef7e14314060d0d77ac9cb69',
+        repo: 'xiaobin22.github.io',
+        owner: 'xiaobin22',
+        admin: ['xiaobin22'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

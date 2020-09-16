@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>利用Vue-cli中的proxyTable解决开发环境的跨域问题 | xiaobin</title>
+<meta name="description" content="&lt;h4&gt;这个世界急三火四滴&lt;/h4&gt;">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://xiaobin22.github.io/favicon.ico?v=1600268448850">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://xiaobin22.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://xiaobin22.github.io">
+        <img src="https://xiaobin22.github.io/images/avatar.png?v=1600268448850" class="site-logo">
+        <h1 class="site-title">xiaobin</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav" target="_blank">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav" target="_blank">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav" target="_blank">
+            标签
+          </a>
+        
+      
+        
+          <a href="https://xiaobin22.github.io/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/xiaobin22/xiaobin22.github.io" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.veryins.com/tag/%E7%9F%B3%E5%8E%9F%E3%81%95%E3%81%A8%E3%81%BF" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+        
+      
+        
+      
+        
+          <a class="social-link" href="https://www.zhihu.com/people/zhang-jian-bin-36/activities" target="_blank">
+            <i class="fab fa-zhihu"></i>
+          </a>
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      <h4>这个世界急三火四滴</h4>
+    </div>
+    <div class="site-footer">
+       | <a class="rss" href="https://xiaobin22.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">利用Vue-cli中的proxyTable解决开发环境的跨域问题</h2>
+            <div class="post-date">2019-07-22</div>
+            
+              <div class="feature-container" style="background-image: url('https://xiaobin22.github.io/post-images/li-yong-vue-cli-zhong-de-proxytable-jie-jue-kai-fa-huan-jing-de-kua-yu-wen-ti.jpg')">
+              </div>
+            
+            <div class="post-content">
+              <p>解决跨域的方法有很多种，比如你和后台人员经过友好协商后，你可以通过JSONP的方式或者让后台人员将代码设置为允许你进行跨域！但是往往前后台开发人员的配合默契度是不太高的。如果后台只给你接口，并明确告诉你不允许修改接口，怎么办？怎么办才能实现跨域？此时你就可以通过proxyTable来解决跨域问题！<br>
+通过proxyTable解决跨域在Vue-cli当中是很简单的。只需修改config文件夹下的index.js中的proxyTable就能实现：</p>
+<pre><code>//代理配置表，在这里可以配置特定的请求代理到对应的API接口
+proxyTable:{
+    &quot;/api&quot;:{
+        target:&quot;http://www.zhangpeiyue.com&quot;,//访问的服务器地址
+        changeOrigin:true,//true为开启代理
+        //secure: true, // 如果是https接口，需要配置这个参数
+        pathRewrite:{
+            '^/api': '/'//路径的替换规则
+           /*
+            *这里的配置是正则表达式，以/api开头的路径将会被‘/'替换掉
+            *假如后台文档的接口是 &quot;http://www.zhangpeiyue.com/user/add&quot;
+            *前端调取API接口应写：axios.get('/api/user/add')
+            */
+        }
+    }
+}
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://xiaobin22.github.io/tag/Mll1F5_be/" class="tag">
+                    Vue
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://xiaobin22.github.io/post/javascript/">
+                  <h3 class="post-title">
+                    javascript
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '85509327b5383c42cba5',
+        clientSecret: '8646a4d7aecba798ef7e14314060d0d77ac9cb69',
+        repo: 'xiaobin22.github.io',
+        owner: 'xiaobin22',
+        admin: ['xiaobin22'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

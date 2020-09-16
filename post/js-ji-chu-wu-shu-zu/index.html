@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>JS基础（五）数组 一 | xiaobin</title>
+<meta name="description" content="&lt;h4&gt;这个世界急三火四滴&lt;/h4&gt;">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://xiaobin22.github.io/favicon.ico?v=1600268448850">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://xiaobin22.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://xiaobin22.github.io">
+        <img src="https://xiaobin22.github.io/images/avatar.png?v=1600268448850" class="site-logo">
+        <h1 class="site-title">xiaobin</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav" target="_blank">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav" target="_blank">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav" target="_blank">
+            标签
+          </a>
+        
+      
+        
+          <a href="https://xiaobin22.github.io/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/xiaobin22/xiaobin22.github.io" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.veryins.com/tag/%E7%9F%B3%E5%8E%9F%E3%81%95%E3%81%A8%E3%81%BF" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+        
+      
+        
+      
+        
+          <a class="social-link" href="https://www.zhihu.com/people/zhang-jian-bin-36/activities" target="_blank">
+            <i class="fab fa-zhihu"></i>
+          </a>
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      <h4>这个世界急三火四滴</h4>
+    </div>
+    <div class="site-footer">
+       | <a class="rss" href="https://xiaobin22.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">JS基础（五）数组 一</h2>
+            <div class="post-date">2019-09-16</div>
+            
+              <div class="feature-container" style="background-image: url('https://xiaobin22.github.io/post-images/js-ji-chu-wu-shu-zu.jpg')">
+              </div>
+            
+            <div class="post-content">
+              <h1 id="1-数组基础">1、数组基础</h1>
+<blockquote>
+<p>创建数组的三种方法：</p>
+</blockquote>
+<pre><code>//字面量创建
+var arr=[1,2,3,4,5,6,7];
+//数据添加删除时，length将会变化
+
+//对象实例化创建
+var arr1=new Array(1,&quot;a&quot;);
+/*
+	  * 1、如果new Array(参数) 参数有且仅有一个，并且是正整数时，这个参数表示
+		        创建若干个空元素在数组中。
+		* 2、若是负数或者小数时，就会报错
+		* 3、若是非数值，将会将这个参数作为数组的第0项元素添加进入
+*/
+
+//对象创建法
+var arr2=new Object([1,2,3,4,5]);
+console.log(typeof arr2);   //这个方法不能判断是否为数组，值是object
+
+/*
+  *  Array.isArray(arr2);  //判断元素是否为数组
+	*  数组是对象的一种，因此、变量获得的也是数组在堆中的引用地址
+*/
+
+//数组遍历
+        for(var i=0;i&lt;arr1.length;i++){
+            arr5[i]=arr[i];
+        }
+        arr1[3]=1000;
+        arr5.name=&quot;Eric&quot;;
+        for(var j=0;j&lt;arr5.length;j++){
+            console.log(j,arr5[j]);
+        }
+        for(var str in arr5){
+            console.log(str,arr5[str]);
+        } 
+//  for(var s in arr){}
+</code></pre>
+<h1 id="2-concat">2、concat()</h1>
+<blockquote>
+<p>concat:串联、合并</p>
+</blockquote>
+<pre><code>arr.concat(元素)  // 原数组不改变，在尾部添加一个新元素，并且返回这个生成的新数组
+arr.concat(元素1,元素2,元素3...)  //原数组不改变，在尾部添加多个新元素，并且返回这个生成的新数组
+arr.concat(数组)  //原数组不改变，合并数组，添加的数组在尾部，并且返回这个生成的新数组
+arr.concat(数组1,数组2...) 原数组不改变，合并数组，添加的数组在尾部，并且返回这个生成的新数组
+
+//var arr1=arr.concat() 复制数组，形成新的数组与原数组无引用关系
+</code></pre>
+<h1 id="3-添加删除元素">3、添加删除元素</h1>
+<pre><code>/*
+arr.push(6);     //向尾部添加一个数值 返回一个新数组
+arr.push(6,7,8,9);  //向尾部添加多个数值
+arr.unshift(6);   //向头部添加一个数值
+arr.unshift(6,7,8,9)  //向头部添加多个值
+
+arr.pop()  //删除数组尾部元素，并且将删除的元素返回
+arr.shift()  //删除数组头部元素，并且将删除的元素返回
+*/
+</code></pre>
+<h1 id="4-查找">4、查找</h1>
+<blockquote>
+<p>indexOf() 在数组中查找元素，如果找到，返回该元素所在的下标，如果没找到返回-1</p>
+</blockquote>
+<blockquote>
+<p>lastIndexOf() 在数组中从后向前查找元素，如果找到，返回该元素所在的下标，如果没找到返回-1</p>
+</blockquote>
+<pre><code>//数组去重
+
+//方法一
+var arr1=[1,2,2,3,4,4,5,6,7];
+var arr2=[];
+for(var i=0;i&lt;arr1.length;i++){
+		if(arr2.indexOf(arr1[i])===-1){
+				arr2.push(arr1[i]);
+		}
+}
+arr1=arr2.concat();
+arr2=[];
+console.log(arr1);
+
+//方法二
+var arr2=[];
+for(var i=0;i&lt;arr1.length;i++){
+		var bool=false;
+		for(var j=0;j&lt;arr2.length;j++){
+				if(arr2[j]===arr1[i]){
+						bool=true;
+						break;
+				}
+		}
+		if(!bool){
+				arr2.push(arr1[i]);
+		}
+}
+arr1=arr2.concat();
+arr2=[];
+console.log(arr1);
+</code></pre>
+<h1 id="5-删除数组问题">5、删除数组问题</h1>
+<pre><code>// 有一数组 data
+data.length=0;
+data=[]; //不可取，内存泄露
+
+//方法二（for循环）
+for(var i=0;i&lt;data.length){
+		data[i]=null;
+		arr.shift();
+}
+
+</code></pre>
+<h1 id="6-splice-方法">6、splice() 方法</h1>
+<blockquote>
+<p>splice() 可添加、删除、替换、数组迁徙等<br>
+返回的数组是被删除元素的集合组成的数组</p>
+</blockquote>
+<pre><code>/*
+*arr1=arr.splice();不做任何操作，返回一个空数组
+
+* 数组迁徙 arr1=arr.splice(0);从第0位开始删除所有元素，并且将这个被删除的元       素返回给新数组
+
+*arr.splice(-1)  删除数组的最后一个元素，这里的负数，是从后向前计数
+     删除元素  arr.splice(2,2);  从第二位开始删除紧邻其后的2个元素,返回被删除的      2个元素数组\
+		 
+*插入元素 arr.splice(2,0,-1,-2); 从第二位开始，不删除元素，插入-1，-2
+
+ *替换元素 arr.splice(2,2,-1,-2); 从第二位开始，删除2个元素，插入-1，-2，
+     相当于将第二位开始后面两个元素替换为-1，-2
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://xiaobin22.github.io/tag/plQTGd7Nz/" class="tag">
+                    JavaScript
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://xiaobin22.github.io/post/js-ji-chu/">
+                  <h3 class="post-title">
+                    JS基础（四）对象、函数、参数、变量以及作用域
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '85509327b5383c42cba5',
+        clientSecret: '8646a4d7aecba798ef7e14314060d0d77ac9cb69',
+        repo: 'xiaobin22.github.io',
+        owner: 'xiaobin22',
+        admin: ['xiaobin22'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
