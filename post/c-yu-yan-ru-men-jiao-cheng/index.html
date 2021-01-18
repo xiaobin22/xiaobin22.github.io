@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>JS基础（三） 条件循环语句 | xiaobin</title>
+<title>C 语言入门教程 | xiaobin</title>
 <meta name="description" content="&lt;h4&gt;这个世界急三火四滴&lt;/h4&gt;">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -110,128 +110,29 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">JS基础（三） 条件循环语句</h2>
-            <div class="post-date">2019-09-15</div>
-            
-              <div class="feature-container" style="background-image: url('https://xiaobin22.github.io/post-images/js-ji-chu-san-tiao-jian-xun-huan-yu-ju.jpg')">
-              </div>
+            <h2 class="post-title">C 语言入门教程</h2>
+            <div class="post-date">2021-01-18</div>
             
             <div class="post-content">
-              <h1 id="1-条件语句">1、条件语句</h1>
-<blockquote>
-<p>条件语句实际上是一种运算，这个运算最终判断是布尔值</p>
-</blockquote>
-<pre><code>        if(x || x===0){
-            x++;
-        }
-        console.log(x);
-
-        var  y=10;
-//        y&gt;0是true  y&lt;20 是true   true &amp;&amp; true  =true
-        if(y&gt;0 &amp;&amp; y&lt;20){
-            y++;
-        }
-        console.log(y);
-
-
-        var str=&quot;&quot;;
-//        str 是&quot;&quot;，它转换为布尔是false,!false=true
-//        所以下面的条件是成立的
-        if(!str){
-            str=&quot;a&quot;;
-        }
-        console.log(str);
-</code></pre>
-<h1 id="2-多支条件结构">2、多支条件结构</h1>
-<pre><code>switch (表达式){
-            case 值1:
-               ...
-                break;
-            case 值2:
-               ...
-                break;
-            case 值3:
-               ...
-                break;
-            case 值4:
-               ...
-                break;
-            default:
-               ...
-                break;
-        }
-//switch(表达式),表达式是一个变量或者或者一个运算式,
-//这个运算的结果或这个变量的值等于下面case中那一个,就会执行那个内容
-</code></pre>
-<h1 id="3-while循环">3、while循环</h1>
-<blockquote>
-<p>跳出循环有两种形式：<br>
-1、循环条件不满足<br>
-2、当循环条件满足，通过break跳出循环</p>
-</blockquote>
-<pre><code>var i=0;
-while(i&lt;50){
-			i++;
-}
-
-//死循环
-/*
-while(true){
-		if(){
-				break;
-		}
-}
-*/
-var s=0;
-while(true){
-		s++;
-		if(s&gt;50){
-				break;
-		}
-}
-//循环不能超出千万级以上，否则会造成卡顿状态，甚至卡死
-
-//九九乘法表
-  var i=1;
-        var str=&quot;&quot;;
-        while (i&lt;10){
-            var j=i;
-            while (j&lt;10){
-                str+=i+&quot;*&quot;+j+&quot;=&quot;+i*j+&quot;&amp;nbsp;&quot;;
-//                document.write(i+&quot;*&quot;+j+&quot;=&quot;+i*j+&quot;&amp;nbsp;&quot;);
-                j++;
-            }
-//            document.write(&quot;|&lt;br&gt;&quot;);
-            str+=&quot;&lt;br&gt;&quot;;
-            i++;
-     }
-     document.write(str);
-</code></pre>
-<h1 id="4-do-while">4、do while</h1>
-<pre><code>/*
-do{
-		
-}while(条件)；
-*/
-//不管循环条件是否满足，先执行一次语句块
-//当初始值在语句块中计算后满足条件时，继续执行语句块
-</code></pre>
-<h1 id="5-for循环">5、for循环</h1>
-<pre><code>for(var i=0;sum=0;i&lt;100;i++;sum+=i){
-		
-}
-console.log(sum);
-
-//continue与break区别
-//continue结束本次循环，而break结束循环
-</code></pre>
+              <h3 id="一-c-语言简介">一、C 语言简介</h3>
+<h4 id="1-编程语言">1、编程语言</h4>
+<h5 id="我们可以通过语言-来控制计算机让计算机为我们做事这样的语言叫做编程语言programming-language">我们可以通过“语言” 来控制计算机，让计算机为我们做事，这样的语言叫做编程语言（Programming Language）</h5>
+<h5 id="c-是在c语言的基础上发展起来的c-里面包含了c语言的所有内容c-语言是-c-的一个部分他们往往混合在一起使用所以统称为cc-cc主要用于-pc-软件开发-linux开发-游戏开发-单片机和嵌入式系统">C++ 是在C语言的基础上发展起来的，C++ 里面包含了C语言的所有内容，C 语言是 C++ 的一个部分，他们往往混合在一起使用，所以统称为C/C++。C/C++主要用于 PC 软件开发、Linux开发、游戏开发、单片机和嵌入式系统</h5>
+<h4 id="2-c-语言历史">2、C 语言历史</h4>
+<h5 id="c-语言是一种强大的专业化编程语言c语言的原型是a语言algol-60语言">C 语言是一种强大的专业化编程语言，C语言的原型是A语言（ALGOL 60语言）</h5>
+<h5 id="1963年剑桥大学将algol-60语言发展成为cplcombined-programming-language语言">1963年，剑桥大学将ALGOL 60语言发展成为CPL(Combined Programming Language)语言。</h5>
+<h5 id="1967年剑桥大学的matin-richards-对cpl语言进行了简化于是产生了bcpl语言">1967年，剑桥大学的Matin Richards 对CPL语言进行了简化，于是产生了BCPL语言。</h5>
+<h5 id="1969年美国贝尔实验室的ken-thompson将bcpl进行了修改提炼出它的精华并为它起了一个有趣的名字b语言-并且他用b语言写了第一个unix操作系统">1969年，美国贝尔实验室的Ken Thompson将BCPL进行了修改，提炼出它的精华，并为它起了一个有趣的名字“B语言”。并且他用B语言写了第一个UNIX操作系统。</h5>
+<h5 id="而在1973年美国贝尔实验室的dmritchie在b语言的基础上最终设计出了一种新的语言他取了bcpl的第二个字母作为这种语言的名字这就是c语言">而在1973年，美国贝尔实验室的D.M.RITCHIE在B语言的基础上最终设计出了一种新的语言，他取了BCPL的第二个字母作为这种语言的名字，这就是C语言。</h5>
+<h5 id="为了使unix操作系统推广1977年dennis-mritchie-发表了不依赖于具体机器系统的c语言编译文本可移植的c语言编译程序-即著名的ansi-c">为了使UNIX操作系统推广，1977年Dennis M.Ritchie 发表了不依赖于具体机器系统的C语言编译文本《可移植的C语言编译程序》。即著名的ANSI C。</h5>
+<h5 id="1978年由att美国电话电报公司贝尔实验室正式发表了c语言-同时brian-wkernighian和dennis-mritchie出版了名著the-c-programming-language一书-通常简称为kr也有人称之为kr标准-但是在kr中并没有定义一个完整的标准c语言后来由美国国家标准协会american-national-standards-instituteansi在此基础上制定了一个c语言标准于1983年发表-通常称之为ansi-c-从而使c语言成为目前世界上流行最广泛的高级程序设计语言">1978年由AT&amp;T（美国电话电报公司）贝尔实验室正式发表了C语言。同时Brian W.Kernighian和Dennis M.Ritchie出版了名著《The C Programming Language》一书。通常简称为《K&amp;R》,也有人称之为《K&amp;R》标准。但是，在《K&amp;R》中并没有定义一个完整的标准C语言，后来由美国国家标准协会（American National Standards Institute,ANSI）在此基础上制定了一个C语言标准，于1983年发表。通常称之为ANSI C。从而使C语言成为目前世界上流行最广泛的高级程序设计语言。</h5>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="https://xiaobin22.github.io/tag/plQTGd7Nz/" class="tag">
-                    JavaScript
+                  <a href="https://xiaobin22.github.io/tag/c/" class="tag">
+                    C
                   </a>
                 
               </div>
@@ -239,9 +140,9 @@ console.log(sum);
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://xiaobin22.github.io/post/js-ji-chu-er-shu-ju-zhuan-huan-he-yun-suan-fu/">
+                <a href="https://xiaobin22.github.io/post/js-ji-chu-wu-shu-zu-er/">
                   <h3 class="post-title">
-                    JS基础（二）数据转换和运算符
+                    JS基础（五）数组二
                   </h3>
                 </a>
               </div>
